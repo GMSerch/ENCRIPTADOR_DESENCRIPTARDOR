@@ -47,7 +47,8 @@ function encriptar() {
         }
     }else{
         alert("Ingrese un mensaje por favor")
-        
+        fondoIMG("img/Muñeco.png");
+        salida.innerHTML = ""
     }
     
     salida.innerHTML = encriptado
@@ -83,14 +84,22 @@ function desencriptar() {
 
     }else{
         alert("Ingrese un mensaje por favor")
+        fondoIMG("img/Muñeco.png");
+        salida.innerHTML = ""
     }
 
     // console.log(auxiliar)
 }
 
+// function fondo(){
+//     if (mensaje.value === "" | mensaje.value === " ") {
+//         fondoIMG("img/Muñeco.png");
+//     }
+// }
 
 
-fondoIMG("img/Muñeco.png");
+
+
 
 async function copiarTexto() {
     
@@ -106,3 +115,7 @@ async function copiarTexto() {
 boton1.onclick = encriptar
 boton2.onclick = desencriptar
 copiar.onclick = copiarTexto
+
+fondoIMG("img/Muñeco.png");
+
+// setInterval(fondo, 1500)
