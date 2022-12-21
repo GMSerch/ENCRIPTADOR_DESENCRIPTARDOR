@@ -171,6 +171,13 @@ header img{
     animation: animacionBotones 1s ease 0s 1 normal forwards;
 }
 
+footer p{
+    position: absolute;
+    bottom: 10px;
+    color: #0A3871;
+    font-size: 12px;
+    left: 25%;
+}
 
 
 
