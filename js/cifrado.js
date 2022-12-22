@@ -7,6 +7,7 @@ let aviso2 = document.getElementById("aviso_2");
 let salida = document.getElementById("salida");
 let caja = document.getElementById("caja");
 let copiar = document.getElementById("copiarTexto")
+let exp = new RegExp(/([A-Z])/g)
 
 
 
@@ -29,6 +30,7 @@ function encriptar() {
 
         for(let index = 0; index < mensaje.value.length; index++){
             auxiliar = mensaje.value.charAt(index);
+            
             if (auxiliar === "a") {
                 auxiliar = "ai"
             }if (auxiliar === "e") {
@@ -39,6 +41,12 @@ function encriptar() {
                 auxiliar ="ober"
             }if (auxiliar == "u") {
                 auxiliar = "ufat"
+            }if(exp.test(auxiliar)){
+                alert("Solo debe ingresar letras minusculas")
+                encriptado = ""
+                fondoIMG("img/Muñeco.png");
+
+                break
             }
     
             
@@ -60,33 +68,42 @@ function encriptar() {
 
 function desencriptar() {
     
-
-    if (mensaje.value != "" && mensaje.value !=" ") {
-        img.setAttribute("src", "")
-        aviso1.innerHTML = ""
-        aviso2.innerHTML = ""
-        let a = mensaje.value;
-        let auxiliar = a.replaceAll("ai","a");
-        a = auxiliar;
-
-        auxiliar = a.replaceAll("enter", "e");
-        a = auxiliar
-
-        auxiliar = a.replaceAll("imes", "i");
-        a = auxiliar
-
-        auxiliar = a.replaceAll("ober", "o");
-        a = auxiliar
-
-        auxiliar = a.replaceAll("ufat", "u");
-
-        salida.innerHTML = auxiliar
-
-    }else{
+    if (exp.test(mensaje.value)) {
         alert("Ingrese un mensaje por favor")
         fondoIMG("img/Muñeco.png");
-        salida.innerHTML = ""
+        
+        
+    }else{
+        
+        if (mensaje.value != "" && mensaje.value !=" ") {
+            img.setAttribute("src", "")
+            aviso1.innerHTML = ""
+            aviso2.innerHTML = ""
+            let a = mensaje.value;
+            let auxiliar = a.replaceAll("ai","a");
+            a = auxiliar;
+    
+            auxiliar = a.replaceAll("enter", "e");
+            a = auxiliar
+    
+            auxiliar = a.replaceAll("imes", "i");
+            a = auxiliar
+    
+            auxiliar = a.replaceAll("ober", "o");
+            a = auxiliar
+    
+            auxiliar = a.replaceAll("ufat", "u");
+    
+            salida.innerHTML = auxiliar
+    
+        }else{
+            alert("Ingrese un mensaje por favor")
+            fondoIMG("img/Muñeco.png");
+            salida.innerHTML = ""
+        }
     }
+
+
 
     // console.log(auxiliar)
 }
